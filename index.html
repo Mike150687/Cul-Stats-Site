@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cúl Stats — Gaelic football analytics for club teams</title>
+<meta name="description" content="Tag every kickout, shot and turnover from the sideline. Half-time and full-time reports, shot maps, kickout zones, opposition scouting and video clips — built for GAA clubs.">
+<meta name="theme-color" content="#0b1f35">
+<link rel="canonical" href="https://www.culstats.ie/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.culstats.ie/">
+<meta property="og:title" content="Cúl Stats — Gaelic football analytics for club teams">
+<meta property="og:description" content="Tag every kickout, shot and turnover from the sideline. Reports, shot maps, kickout zones, opposition scouting and video clips, ready at the final whistle.">
+<meta property="og:image" content="https://www.culstats.ie/img/icon-512.png">
+<link rel="icon" href="img/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=JetBrains+Mono:wght@500;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1f35; --navy-1:#10283f; --navy-2:#16324d; --navy-3:#1e3d5c;
+  --line:rgba(160,190,220,.16); --line-2:rgba(160,190,220,.28);
+  --t1:#f3f6f9; --t2:#c3cfdb; --t3:#8fa2b5;
+  --gold:#e3b04b; --gold-d:rgba(227,176,75,.14);
+  --score:#3fbf7f; --wide:#f08a4b; --home:#4aa3e8; --away:#ef6a5a;
+  --pitch:#1f4a33; --pitch-d:#183c29; --pitch-line:rgba(240,250,244,.6);
+  --fd:'Bricolage Grotesque',system-ui,sans-serif; --fui:'Manrope',system-ui,sans-serif; --fm:'JetBrains Mono',ui-monospace,monospace;
+  --r:14px; --max:1140px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--t1);font-family:var(--fui);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.eyebrow{font-family:var(--fm);font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+h1,h2,h3{font-family:var(--fd);font-weight:800;line-height:1.08;letter-spacing:-.02em}
+h1{font-size:clamp(40px,6vw,68px)}
+h2{font-size:clamp(30px,4vw,44px)}
+h3{font-size:22px;letter-spacing:-.01em}
+p.lead{font-size:clamp(17px,2vw,20px);color:var(--t2);max-width:36em}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font-weight:800;font-size:16px;text-decoration:none;border:1.5px solid transparent;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.gold{background:var(--gold);color:#1a1405}
+.btn.gold:hover{background:#efc063}
+.btn.ghost{border-color:var(--line-2);color:var(--t1)}
+.btn.ghost:hover{background:rgba(255,255,255,.05)}
+
+/* Nav */
+nav.top{position:sticky;top:0;z-index:20;background:rgba(11,31,53,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;gap:28px;height:68px}
+nav.top .logo img{height:44px;width:auto}
+nav.top .links{display:flex;gap:24px;margin-left:auto;font-weight:700;font-size:15px;color:var(--t2)}
+nav.top .links a{text-decoration:none}
+nav.top .links a:hover{color:var(--t1)}
+nav.top .btn{min-height:40px;padding:0 18px;font-size:14.5px}
+@media (max-width:860px){nav.top .links{display:none} nav.top .btn{margin-left:auto}}
+
+/* Hero */
+.hero{padding:72px 0 56px;background:radial-gradient(900px 500px at 85% 10%,rgba(227,176,75,.10),transparent 60%),radial-gradient(700px 500px at 0% 100%,rgba(74,163,232,.08),transparent 60%)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero .lead{margin:22px 0 30px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero .small{margin-top:18px;color:var(--t3);font-size:14.5px}
+@media (max-width:920px){.hero .wrap{grid-template-columns:1fr}.hero{padding-top:48px}}
+
+/* The phone in the hero */
+.phone{justify-self:center;width:min(360px,100%);background:#07121f;border:1px solid var(--line-2);border-radius:38px;padding:12px;box-shadow:0 40px 80px -30px rgba(0,0,0,.7),0 0 0 6px rgba(255,255,255,.02)}
+.screen{background:var(--navy-1);border-radius:28px;overflow:hidden}
+.sb{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:6px;padding:14px 16px 12px;background:var(--navy-2);border-bottom:1px solid var(--line)}
+.sb .side{font-size:12px;font-weight:700;color:var(--t2);white-space:nowrap}
+.sb .side b{display:block;font-family:var(--fm);font-size:19px;color:var(--t1);letter-spacing:-.02em}
+.sb .side.r{text-align:right}
+.sb .clk{font-family:var(--fm);font-size:12px;color:var(--gold);background:var(--gold-d);padding:4px 8px;border-radius:6px;white-space:nowrap}
+.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:14px}
+.tile{background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:14px 8px;text-align:center;font-weight:800;font-size:13.5px}
+.tile i{display:block;font-style:normal;font-size:20px;margin-bottom:4px}
+.tile.on{border-color:var(--gold);background:var(--gold-d)}
+.log{padding:2px 14px 14px}
+.log .h{font-family:var(--fm);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0}
+.log .row{display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:13.5px}
+.log .row b{font-weight:800}
+.log .t{font-family:var(--fm);font-size:12px;color:var(--t3);min-width:40px}
+.log .v{margin-left:auto;font-family:var(--fm);font-size:12px;color:var(--t3)}
+.dot{width:9px;height:9px;border-radius:50%;flex:none}
+.flash{margin:0 14px 14px;padding:10px 12px;border-radius:10px;background:rgba(63,191,127,.12);border:1px solid rgba(63,191,127,.35);font-size:13px;color:#bfeed5}
+
+/* Fact strip */
+.facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--navy-1)}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:26px;padding-bottom:26px}
+.facts div{font-size:15px;color:var(--t2)}
+.facts b{display:block;font-family:var(--fd);font-size:20px;color:var(--t1);margin-bottom:2px}
+@media (max-width:860px){.facts .wrap{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.facts .wrap{grid-template-columns:1fr;gap:16px}}
+
+/* Sections */
+section{padding:96px 0}
+.sec-head{max-width:720px;margin-bottom:56px}
+.sec-head h2{margin:12px 0 16px}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:44px 0}
+.feature+.feature{border-top:1px solid var(--line)}
+.feature.flip .copy{order:2}
+.feature h3{font-size:clamp(26px,3vw,32px);margin:10px 0 14px}
+.feature p{color:var(--t2)}
+.feature ul{list-style:none;margin-top:18px;display:grid;gap:9px}
+.feature li{padding-left:26px;position:relative;color:var(--t2);font-size:16px}
+.feature li::before{content:"";position:absolute;left:0;top:.55em;width:12px;height:12px;border-radius:3px;background:var(--gold);transform:rotate(45deg) scale(.7)}
+@media (max-width:860px){.feature{grid-template-columns:1fr;gap:28px}.feature.flip .copy{order:0}}
+
+/* Cards that show the product */
+.card{background:var(--navy-1);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:0 30px 60px -40px rgba(0,0,0,.8)}
+.card .ch{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.card .ch b{font-weight:800}
+.card .ch span{font-family:var(--fm);font-size:12px;color:var(--t3)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:13px;color:var(--t3)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.kz{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.kz div{border-radius:8px;padding:10px 6px;text-align:center;font-family:var(--fm);font-size:13px;font-weight:700}
+.kz small{display:block;font-family:var(--fui);font-weight:600;font-size:11px;opacity:.8}
+.bars{display:grid;gap:10px}
+.bar{display:grid;grid-template-columns:120px 1fr 44px;gap:10px;align-items:center;font-size:14px}
+.bar .tr{height:10px;border-radius:5px;background:var(--navy-3);overflow:hidden}
+.bar .tr i{display:block;height:100%;border-radius:5px;background:var(--gold)}
+.bar .n{font-family:var(--fm);font-size:13px;text-align:right}
+.rep{display:grid;gap:10px}
+.rep .q{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:4px}
+.rep .q div{background:var(--navy-2);border-radius:8px;padding:8px;text-align:center;font-family:var(--fm);font-size:13px}
+.rep .q small{display:block;color:var(--t3);font-family:var(--fui);font-size:11px}
+.pdfs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.pdf{aspect-ratio:1/1.35;background:#f6f7f9;border-radius:6px;padding:10px;display:grid;align-content:start;gap:6px}
+.pdf i{display:block;height:6px;border-radius:3px;background:#d7dce3}
+.pdf i.k{background:#14181f;height:9px;width:70%}
+.pdf .pp{height:52px;border-radius:4px;background:var(--pitch)}
+.clips{display:grid;gap:8px}
+.clip{display:flex;gap:12px;align-items:center;background:var(--navy-2);border-radius:10px;padding:10px 12px;font-size:14px}
+.clip .play{width:30px;height:30px;border-radius:50%;background:var(--gold);color:#1a1405;display:grid;place-items:center;font-size:12px;flex:none}
+.clip .tt{font-family:var(--fm);font-size:12px;color:var(--t3);margin-left:auto}
+.clip.late{outline:1.5px solid rgba(227,176,75,.6)}
+.clip.late .tt{color:var(--gold)}
+.share{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.share div{background:var(--navy-2);border-radius:10px;padding:14px}
+.share b{display:block;font-family:var(--fm);font-size:20px;letter-spacing:.1em;color:var(--gold)}
+.share small{color:var(--t3);font-size:13px}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:var(--navy-1);border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.step .n{width:40px;height:40px;border-radius:50%;background:var(--gold-d);color:var(--gold);display:grid;place-items:center;font-family:var(--fm);font-weight:700;margin-bottom:16px}
+.step p{color:var(--t2);margin-top:8px;font-size:16px}
+@media (max-width:860px){.steps{grid-template-columns:1fr}}
+
+/* Pricing */
+#pricing{background:var(--navy-1);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.plan{position:relative;background:var(--navy);border:1px solid var(--line);border-radius:18px;padding:30px 26px;display:flex;flex-direction:column}
+.plan.pop{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 30px 60px -30px rgba(227,176,75,.25)}
+.plan .tag{position:absolute;top:-13px;left:26px;font-family:var(--fm);font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1a1405;background:var(--gold);padding:4px 10px;border-radius:999px}
+@media (max-width:920px){.plans{gap:28px}}
+.plan.oneoff{margin-top:20px;display:grid;grid-template-columns:1fr auto 2.1fr auto;gap:12px 32px;align-items:center;background:var(--navy-2)}
+.plan.oneoff .price{margin:0;font-size:40px}
+.plan.oneoff ul{margin:0;grid-template-columns:1fr 1fr;gap:8px 20px}
+.plan.oneoff .btn{margin:0}
+@media (max-width:920px){.plan.oneoff{grid-template-columns:1fr;max-width:460px;margin:28px auto 0}.plan.oneoff ul{grid-template-columns:1fr}}
+.plan .who{color:var(--t3);font-size:15px;margin-top:4px}
+.plan .price{font-family:var(--fd);font-weight:800;font-size:48px;letter-spacing:-.03em;margin:20px 0 2px}
+.plan .price small{font-family:var(--fui);font-size:16px;font-weight:600;color:var(--t3);letter-spacing:0}
+.plan .per{color:var(--t3);font-size:14px}
+.plan ul{list-style:none;display:grid;gap:10px;margin:24px 0 28px;font-size:15.5px;color:var(--t2)}
+.plan li{padding-left:24px;position:relative}
+.plan li::before{content:"✓";position:absolute;left:0;color:var(--score);font-weight:800}
+.plan .btn{margin-top:auto;justify-content:center}
+.price-notes{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;margin-top:30px;color:var(--t3);font-size:15px}
+.price-notes b{color:var(--t1)}
+@media (max-width:920px){.plans{grid-template-columns:1fr;max-width:460px;margin:0 auto}}
+
+/* Get the app */
+.devices{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.device{background:var(--navy-1);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.device h3{font-size:20px;margin-bottom:12px}
+.device ol{padding-left:20px;color:var(--t2);display:grid;gap:6px;font-size:16px}
+.device b{color:var(--t1)}
+.getapp{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-bottom:36px}
+.getapp img{width:72px;height:72px;border-radius:18px}
+.getapp .url{font-family:var(--fm);font-size:20px;color:var(--gold)}
+@media (max-width:860px){.devices{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{max-width:820px}
+.faq details{border-top:1px solid var(--line);padding:20px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font-weight:800;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--gold);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq p{color:var(--t2);margin-top:12px}
+
+/* Final call */
+.final{text-align:center;padding:100px 0;background:radial-gradient(640px 300px at 50% 55%,rgba(227,176,75,.10),transparent 70%)}
+.final h2{max-width:16em;margin:0 auto 16px}
+.final p{color:var(--t2);margin-bottom:28px}
+.final .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+footer{border-top:1px solid var(--line);padding:36px 0;color:var(--t3);font-size:14.5px}
+footer .wrap{display:flex;gap:20px 28px;flex-wrap:wrap;align-items:center}
+footer img{height:34px;width:auto}
+footer nav{display:flex;gap:22px;margin-left:auto;flex-wrap:wrap}
+footer a{text-decoration:none}
+footer a:hover{color:var(--t1)}
+
+.placeholder{border:1.5px dashed var(--gold);border-radius:12px;padding:18px 20px;color:var(--t2);background:var(--gold-d)}
+.placeholder b{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="logo" href="#"><img src="img/wordmark.png" alt="Cúl Stats — Gaelic football analytics" width="140" height="44"></a>
+    <div class="links">
+      <a href="#features">Features</a><a href="#video">Video</a><a href="#analysis">Match analysis</a><a href="#pricing">Pricing</a><a href="#get">Get the app</a><a href="#faq">FAQ</a>
+    </div>
+    <a class="btn gold" href="#trial">Start free trial</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Gaelic football analytics</div>
+      <h1 style="margin-top:14px">The whole match, <em>counted</em> from the sideline.</h1>
+      <p class="lead">Tag every kickout, shot, turnover, tackle and foul as it happens. Cúl Stats turns it into a half-time report, a full-time report, shot maps, kickout zones and video clips — ready when the whistle goes.</p>
+      <div class="ctas">
+        <a class="btn gold" href="#trial">Start a 14-day free trial</a>
+        <a class="btn ghost" href="#features">See what it does</a>
+      </div>
+      <p class="small">Phone, tablet or laptop · Keeps recording with no signal · Unlimited managers and players can view</p>
+    </div>
+    <div class="phone" aria-hidden="true">
+      <div class="screen">
+        <div class="sb">
+          <span class="side">Home<b>1-09</b></span>
+          <span class="clk">H1 27:14</span>
+          <span class="side r">Away<b>0-10</b></span>
+        </div>
+        <div class="pad">
+          <div class="tile on"><i>◎</i>Shot</div><div class="tile"><i>⇄</i>Turnover</div><div class="tile"><i>✋</i>Tackle</div>
+          <div class="tile"><i>⚑</i>Foul</div><div class="tile"><i>↗</i>Kickout</div><div class="tile"><i>⇅</i>Sub</div>
+        </div>
+        <div class="flash">Logged: Point · #11 — from play, under pressure. Worth 0.41 expected points.</div>
+        <div class="log">
+          <div class="h">Last three</div>
+          <div class="row"><span class="t">27:14</span><span class="dot" style="background:var(--score)"></span><b>Point</b> #11<span class="v">From play</span></div>
+          <div class="row"><span class="t">26:40</span><span class="dot" style="background:var(--home)"></span><b>Kickout won</b> #8<span class="v">Restart</span></div>
+          <div class="row"><span class="t">25:02</span><span class="dot" style="background:var(--wide)"></span><b>Wide</b> #14<span class="v">Two-pointer</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="facts">
+  <div class="wrap">
+    <div><b>Six tiles</b>Shot, turnover, tackle, foul, kickout, sub — all by tapping</div>
+    <div><b>Today's rules</b>Two-point arc and 65m lines on every pitch</div>
+    <div><b>No signal? Fine</b>It keeps recording and catches up later</div>
+    <div><b>Whole management</b>A second device live, and view-only access for everyone else</div>
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">What it does</div>
+      <h2>Everything your analyst does on a Tuesday night, ready at the final whistle.</h2>
+      <p class="lead">Built by a club analyst for club teams. No spreadsheets, no laptop on the sideline, no waiting until next week.</p>
+    </div>
+
+    <div class="feature">
+      <div class="copy">
+        <div class="eyebrow">Live tagging</div>
+        <h3>Tap, tap, back to watching the game.</h3>
+        <p>Pick the action, the player and where it happened on the pitch. The time is taken at your first tap, not when you finish, so the clock is right even when the play is quick.</p>
+        <ul>
+          <li>After a score or a wide, Kickout already knows who is kicking out</li>
+          <li>Every action is said back to you for two seconds, so a wrong name is one tap from fixed</li>
+          <li>Undo names what it is about to undo</li>
+        </ul>
+      </div>
+      <div class="card" aria-hidden="true">
+        <div class="ch"><b>Where the shots came from</b><span>Home · 14 shots · 9 scored</span></div>
+        <svg viewBox="0 0 300 170" width="100%" role="img" aria-label="A shot map: where one team's shots were taken, scores filled and wides hollow" style="border-radius:8px">
+          <rect x="0" y="0" width="300" height="170" fill="var(--pitch)"/>
+          <g fill="none" stroke="var(--pitch-line)" stroke-width="0.9">
+            <rect x="8" y="5" width="284" height="160"/>
+            <line x1="150" y1="5" x2="150" y2="165"/>
+            <line x1="96" y1="5" x2="96" y2="165"/><line x1="204" y1="5" x2="204" y2="165"/>
+            <line x1="135.3" y1="5" x2="135.3" y2="165" stroke-opacity=".7"/><line x1="164.7" y1="5" x2="164.7" y2="165" stroke-opacity=".7"/>
+            <line x1="47" y1="5" x2="47" y2="165" stroke-opacity=".75"/><line x1="253" y1="5" x2="253" y2="165" stroke-opacity=".75"/>
+            <line x1="33" y1="5" x2="33" y2="165" stroke-opacity=".4" stroke-dasharray="2 2"/><line x1="267" y1="5" x2="267" y2="165" stroke-opacity=".4" stroke-dasharray="2 2"/>
+            <rect x="8" y="72" width="10" height="26"/><rect x="282" y="72" width="10" height="26"/>
+            <path d="M 47,62 A 25,23 0 0 1 47,108"/><path d="M 253,62 A 25,23 0 0 0 253,108"/>
+          </g>
+          <g stroke="var(--gold)" stroke-width="0.9" fill="none" opacity=".85" stroke-dasharray="3 2">
+            <path d="M 47,23 A 78,71 0 0 1 47,147"/><path d="M 253,23 A 78,71 0 0 0 253,147"/>
+          </g>
+          <g stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round"><line x1="8" y1="79" x2="8" y2="91"/><line x1="292" y1="79" x2="292" y2="91"/></g>
+          <g fill="var(--pitch-line)" font-family="JetBrains Mono, monospace" font-size="4.6" text-anchor="middle" opacity=".8">
+            <text x="47" y="11">20</text><text x="96" y="11">45</text><text x="135.3" y="11">65</text><text x="164.7" y="11">65</text><text x="204" y="11">45</text><text x="253" y="11">20</text>
+          </g>
+          <g fill="var(--gold)" font-family="JetBrains Mono, monospace" font-size="4.8" font-weight="700" text-anchor="middle" opacity=".85"><text x="86" y="86">2PT</text><text x="214" y="86">2PT</text></g>
+          <g>
+            <circle cx="276" cy="88" r="4.5" fill="var(--gold)"/>
+            <circle cx="262" cy="64" r="4" fill="var(--score)"/><circle cx="256" cy="98" r="4" fill="var(--score)"/>
+            <circle cx="270" cy="112" r="4" fill="var(--score)"/><circle cx="244" cy="78" r="4" fill="var(--score)"/>
+            <circle cx="238" cy="116" r="4" fill="var(--score)"/><circle cx="252" cy="52" r="4" fill="var(--score)"/>
+            <circle cx="198" cy="84" r="4" fill="var(--score)" stroke="var(--gold)" stroke-width="1.5"/>
+            <circle cx="232" cy="132" r="4" fill="var(--score)"/>
+            <circle cx="226" cy="58" r="4" fill="none" stroke="var(--wide)" stroke-width="1.8"/>
+            <circle cx="266" cy="132" r="4" fill="none" stroke="var(--wide)" stroke-width="1.8"/>
+            <circle cx="192" cy="118" r="4" fill="none" stroke="var(--wide)" stroke-width="1.8"/>
+            <circle cx="278" cy="58" r="4" fill="none" stroke="var(--wide)" stroke-width="1.8"/>
+            <circle cx="212" cy="40" r="4" fill="none" stroke="var(--wide)" stroke-width="1.8"/>
+          </g>
+        </svg>
+        <div class="legend"><span><i class="dot" style="background:var(--gold)"></i>Goal</span><span><i class="dot" style="background:var(--score)"></i>Point</span><span><i class="dot" style="background:var(--score);box-shadow:0 0 0 1.5px var(--gold)"></i>Two-pointer</span><span><i class="dot" style="border:2px solid var(--wide)"></i>Wide</span></div>
+      </div>
+    </div>
+
+    <div class="feature flip">
+      <div class="copy">
+        <div class="eyebrow">Reports</div>
+        <h3>A half-time report for the dressing room. A full report for Tuesday.</h3>
+        <p>The story of the match in pictures, the detail behind it, and how it went quarter by quarter. Every report saves as a clean PDF to send to the management WhatsApp.</p>
+        <ul>
+          <li>Half-time summary you can read in the dressing room</li>
+          <li>Post-match report: the story, the detail, by quarter, or all of it</li>
+          <li>A one-page Coach Page in plain English, and a result card for the club's socials</li>
+        </ul>
+      </div>
+      <div class="card" aria-hidden="true">
+        <div class="ch"><b>Post-match report</b><span>PDF · 6 pages</span></div>
+        <div class="rep">
+          <div class="pdfs">
+            <div class="pdf"><i class="k"></i><i></i><i style="width:80%"></i><div class="pp"></div><i></i><i style="width:60%"></i></div>
+            <div class="pdf"><i class="k" style="width:55%"></i><div class="pp"></div><i></i><i style="width:70%"></i><i></i></div>
+            <div class="pdf"><i class="k" style="width:62%"></i><i></i><i></i><i style="width:85%"></i><div class="pp" style="height:40px"></div></div>
+          </div>
+          <div class="q">
+            <div><small>Q1</small>0-04</div><div><small>Q2</small>1-05</div><div><small>Q3</small>0-03</div><div><small>Q4</small>0-06</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="copy">
+        <div class="eyebrow">Kickouts</div>
+        <h3>Know where your restarts go, and who wins them.</h3>
+        <p>Every kickout, yours and theirs, by zone: kept, lost, short or long, and which of your players are winning them clean. The kickout battle in one picture.</p>
+        <ul>
+          <li>Twelve or sixteen zones, named in metres</li>
+          <li>Kept inside your 45, kept past it</li>
+          <li>Who wins the breaks, for both teams</li>
+        </ul>
+      </div>
+      <div class="card" aria-hidden="true">
+        <div class="ch"><b>Our kickouts by zone</b><span>22 kickouts · 15 kept</span></div>
+        <div class="kz">
+          <div style="background:rgba(63,191,127,.14)">2/3<small>Short L</small></div><div style="background:rgba(63,191,127,.30)">4/4<small>Short C</small></div><div style="background:rgba(63,191,127,.14)">1/2<small>Short R</small></div><div style="background:rgba(239,106,90,.14)">0/1<small>Wing R</small></div>
+          <div style="background:rgba(63,191,127,.22)">3/4<small>Mid L</small></div><div style="background:rgba(239,106,90,.24)">1/3<small>Mid C</small></div><div style="background:rgba(63,191,127,.22)">2/2<small>Mid R</small></div><div style="background:var(--navy-2)">—<small>Wing L</small></div>
+          <div style="background:rgba(239,106,90,.14)">1/2<small>Long L</small></div><div style="background:rgba(63,191,127,.14)">1/1<small>Long C</small></div><div style="background:var(--navy-2)">—<small>Long R</small></div><div style="background:var(--navy-2)">—<small>Over 65</small></div>
+        </div>
+        <div class="legend"><span><i class="dot" style="background:var(--score)"></i>Kept more</span><span><i class="dot" style="background:var(--away)"></i>Lost more</span></div>
+      </div>
+    </div>
+
+    <div class="feature flip">
+      <div class="copy">
+        <div class="eyebrow">Opposition scouting</div>
+        <h3>Know the next team better than they know themselves.</h3>
+        <p>Every match you have on file against your next opponent, pooled into one report: where they shoot from, where their kickouts go, who scores, and when.</p>
+        <ul>
+          <li>Tap any mark on their shot or kickout map to see the match, the time and the result</li>
+          <li>…and jump straight to the clip if there is video</li>
+          <li>Pictures first for the players, the figures underneath for management</li>
+        </ul>
+      </div>
+      <div class="card" aria-hidden="true">
+        <div class="ch"><b>Who scores for them</b><span>Last 3 matches</span></div>
+        <div class="bars">
+          <div class="bar"><span>#14 Full forward</span><span class="tr"><i style="width:92%"></i></span><span class="n">1-14</span></div>
+          <div class="bar"><span>#11 Centre fwd</span><span class="tr"><i style="width:64%"></i></span><span class="n">0-12</span></div>
+          <div class="bar"><span>#13 Corner fwd</span><span class="tr"><i style="width:46%"></i></span><span class="n">0-09</span></div>
+          <div class="bar"><span>#9 Midfield</span><span class="tr"><i style="width:28%"></i></span><span class="n">0-05</span></div>
+          <div class="bar"><span>#12 Wing fwd</span><span class="tr"><i style="width:18%"></i></span><span class="n">0-03</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="copy">
+        <div class="eyebrow">The whole management team</div>
+        <h3>One analyst tags. Everyone else watches it build.</h3>
+        <p>A second phone or tablet can follow the match live from the stand. Managers, coaches and players get their own view-only access with a club code — as many as you like, on every plan.</p>
+        <ul>
+          <li>Live sharing to a second device during the match</li>
+          <li>View-only Team Access for managers and players</li>
+          <li>A season summary that adds up every match</li>
+        </ul>
+      </div>
+      <div class="card" aria-hidden="true">
+        <div class="ch"><b>Team Access</b><span>View only</span></div>
+        <div class="share">
+          <div><small>Managers</small><b>K7Q-2M</b><small>4 people</small></div>
+          <div><small>Players</small><b>P3X-9F</b><small>31 people</small></div>
+        </div>
+        <div class="legend" style="margin-top:14px"><span><i class="dot" style="background:var(--score)"></i>Live: 2 watching the match now</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="video" style="background:var(--navy-1);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="feature" style="padding:0">
+      <div class="copy">
+        <div class="eyebrow">Video</div>
+        <h3 style="font-size:clamp(30px,4vw,44px)">Every tag is a clip.</h3>
+        <p>Add the match video from Veo, YouTube or OneDrive and every action you tagged opens at that moment — seven seconds early, so you see the build-up.</p>
+        <ul>
+          <li><b style="color:var(--t1)">Highlight reels:</b> every kickout, shot, turnover or free for a team or one player, back to back — or made into one video file</li>
+          <li><b style="color:var(--t1)">Video review:</b> the app listens for the referee's whistle to line up each half, and flags the tags you probably tapped late so you can fix each one</li>
+          <li>Your video stays where it is. Nothing is uploaded to us.</li>
+        </ul>
+      </div>
+      <div class="card" aria-hidden="true">
+        <div class="ch"><b>Video review</b><span>8 probably late · 41 of 130 checked</span></div>
+        <div class="clips">
+          <div class="clip late"><span class="play">▶</span><span><b>Point</b> · #11</span><span class="tt">probably late</span></div>
+          <div class="clip"><span class="play">▶</span><span><b>Kickout won</b> · #8</span><span class="tt">corrected</span></div>
+          <div class="clip"><span class="play">▶</span><span><b>Turnover won</b> · #6</span><span class="tt">checked</span></div>
+          <div class="clip"><span class="play">▶</span><span><b>Goal</b> · #14</span><span class="tt">H2 12:40</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">How it works</div>
+      <h2>Three steps. Ready before you've left the pitch.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Set up the match</h3><p>Pick your panel and the opposition's. Your squads are saved for next week.</p></div>
+      <div class="step"><div class="n">2</div><h3>Tag it</h3><p>From the sideline as it happens, or afterwards from the video. Six tiles, all tapping, no typing.</p></div>
+      <div class="step"><div class="n">3</div><h3>Read it</h3><p>Reports, maps and clips build as you go. Share the PDF, or let management open it themselves.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="analysis">
+  <div class="wrap">
+    <div class="feature" style="padding:0">
+      <div class="copy">
+        <div class="eyebrow">Match analysis · €99 a match</div>
+        <h3 style="font-size:clamp(30px,4vw,44px)">No stats person? Send us the video.</h3>
+        <p>We tag the whole match for you — both teams, every kickout, shot, turnover, tackle and foul — and give you view-only access to it in Cúl Stats within 48 hours of getting the video. One match, one price, no subscription.</p>
+        <ul>
+          <li>Every action tagged, for both teams</li>
+          <li>Your match in Cúl Stats, view only — for your management and players</li>
+          <li>The full post-match report, shot maps and kickout zones, ready to save as PDFs</li>
+          <li>A clip link for every action, at the moment it happened</li>
+          <li>Ready within 48 hours of the video</li>
+        </ul>
+        <div style="margin-top:26px"><a class="btn gold" href="mailto:admin@culstats.ie?subject=Match%20analysis%20(%E2%82%AC99)&body=Club%3A%20%0AThe%20match%20(who%20and%20when)%3A%20%0ALink%20to%20the%20video%3A%20">Get a match analysed</a></div>
+      </div>
+      <div class="steps" style="grid-template-columns:1fr;gap:12px">
+        <div class="step" style="padding:20px 22px;display:flex;gap:16px;align-items:flex-start"><div class="n" style="margin:0;flex:none">1</div><div><h3 style="font-size:19px">Send us the match</h3><p style="margin-top:4px">Who you played, when, and a link to the video. €99, and that's it.</p></div></div>
+        <div class="step" style="padding:20px 22px;display:flex;gap:16px;align-items:flex-start"><div class="n" style="margin:0;flex:none">2</div><div><h3 style="font-size:19px">We tag the whole match</h3><p style="margin-top:4px">Both teams, every action, each one linked to its moment in the video.</p></div></div>
+        <div class="step" style="padding:20px 22px;display:flex;gap:16px;align-items:flex-start"><div class="n" style="margin:0;flex:none">3</div><div><h3 style="font-size:19px">You open it in Cúl Stats</h3><p style="margin-top:4px">Within 48 hours of the video we email you a code. Enter it in the app and the whole match is there, view only.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head" style="margin-left:auto;margin-right:auto;text-align:center">
+      <div class="eyebrow">Pricing</div>
+      <h2>One price for the season. No surprises.</h2>
+      <p class="lead" style="margin:0 auto">Every plan has every feature. Plans differ only in how many teams you record and how many people tag.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <h3>Team</h3>
+        <div class="who">One team — your senior footballers, say</div>
+        <div class="price">€249<small> / year</small></div>
+        <div class="per">About €21 a month</div>
+        <ul>
+          <li>1 team</li>
+          <li>2 analyst logins</li>
+          <li>Unlimited managers and players viewing</li>
+          <li>Every report, map and video feature</li>
+        </ul>
+        <a class="btn ghost" href="#trial">Start free trial</a>
+      </div>
+      <div class="plan pop">
+        <span class="tag">Most clubs</span>
+        <h3>Club</h3>
+        <div class="who">A club running several teams</div>
+        <div class="price">€599<small> / year</small></div>
+        <div class="per">About €50 a month</div>
+        <ul>
+          <li>Up to 4 teams</li>
+          <li>5 analyst logins</li>
+          <li>Unlimited managers and players viewing</li>
+          <li>Every report, map and video feature</li>
+        </ul>
+        <a class="btn gold" href="#trial">Start free trial</a>
+      </div>
+      <div class="plan">
+        <h3>Whole Club</h3>
+        <div class="who">Adult and underage, every grade</div>
+        <div class="price">€999<small> / year</small></div>
+        <div class="per">About €83 a month</div>
+        <ul>
+          <li>Every team in the club</li>
+          <li>12 analyst logins</li>
+          <li>Unlimited managers and players viewing</li>
+          <li>Every report, map and video feature</li>
+        </ul>
+        <a class="btn ghost" href="#trial">Start free trial</a>
+      </div>
+    </div>
+    <div class="plan oneoff">
+      <div>
+        <h3>Match analysis</h3>
+        <div class="who">No stats person? We tag it for you. No subscription.</div>
+      </div>
+      <div class="price">€99<small> / match</small></div>
+      <ul>
+        <li>Every action, both teams</li>
+        <li>View-only access in the app</li>
+        <li>Report, shot maps, kickouts, clips</li>
+        <li>Ready within 48 hours</li>
+      </ul>
+      <a class="btn ghost" href="#analysis">Get a match analysed</a>
+    </div>
+    <div class="price-notes">
+      <span><b>14-day free trial</b>, everything included</span>
+      <span>Extra analyst login <b>€75 / year</b></span>
+      <span>Billed once a year by invoice</span>
+    </div>
+  </div>
+</section>
+
+<section id="get">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Get the app</div>
+      <h2>No app store. Open it and add it to your home screen.</h2>
+      <p class="lead">Cúl Stats runs in your browser and installs like any app — with its own icon, full screen, and working with no signal. Updates arrive by themselves.</p>
+    </div>
+    <div class="getapp">
+      <img src="img/icon-192.png" alt="" width="72" height="72">
+      <div><div class="url">culstats.ie</div><div style="color:var(--t3);font-size:15px">Open it on the phone, tablet or laptop you'll use</div></div>
+      <a class="btn gold" href="https://culstats.ie/" style="margin-left:auto">Open Cúl Stats</a>
+    </div>
+    <div class="devices">
+      <div class="device"><h3>iPhone or iPad</h3><ol><li>Open <b>culstats.ie</b> in <b>Safari</b></li><li>Tap <b>Share</b> (the square with the arrow)</li><li>Tap <b>Add to Home Screen</b></li></ol></div>
+      <div class="device"><h3>Android</h3><ol><li>Open <b>culstats.ie</b> in <b>Chrome</b></li><li>Tap <b>⋮</b> in the corner</li><li>Tap <b>Install app</b> or <b>Add to Home screen</b></li></ol></div>
+      <div class="device"><h3>Laptop</h3><ol><li>Open <b>culstats.ie</b> in <b>Chrome</b> or <b>Edge</b></li><li>Click the <b>install</b> icon at the end of the address bar</li><li>Best for video review and highlight reels</li></ol></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Questions</div>
+      <h2>What clubs ask first.</h2>
+    </div>
+    <div class="faq">
+      <details><summary>What if there's no signal at the pitch?</summary><p>It keeps recording. Everything is saved on the device as you go and backs up when the signal comes back.</p></details>
+      <details><summary>Is it for hurling or camogie?</summary><p>Not yet — Cúl Stats is built for Gaelic football, including the two-point arc.</p></details>
+      <details><summary>Who can see our data?</summary><p>Only people your club gives access to. Analysts log in; managers and players view with your club's Team Access code. Your opposition cannot see it.</p></details>
+      <details><summary>Do we have to upload our match video?</summary><p>No. Paste the link to your Veo, YouTube or OneDrive video, or pick the file on your laptop. The video stays where it is.</p></details>
+      <details><summary>What happens when the trial ends?</summary><p>Pick a plan and carry on — every match you recorded is kept. If you don't, the trial simply stops; nothing is charged, because nothing is billed until you choose a plan.</p></details>
+      <details><summary>Can I get my data out?</summary><p>Yes. Every match exports to CSV and Excel, every report to PDF, and there's a Download everything file for the whole club.</p></details>
+    </div>
+  </div>
+</section>
+
+<div class="final" id="trial">
+  <div class="wrap">
+    <h2>Try it on your next match.</h2>
+    <p>14 days, every feature, no card needed. Tell us your club and we'll have you set up the same day.</p>
+    <div class="ctas">
+      <a class="btn gold" href="mailto:admin@culstats.ie?subject=Free%20trial%20for%20our%20club&body=Club%3A%20%0AYour%20name%3A%20%0ATeam(s)%3A%20">Request a free trial</a>
+      <a class="btn ghost" href="mailto:admin@culstats.ie">Ask a question</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <img src="img/wordmark.png" alt="Cúl Stats" width="108" height="34">
+    <span>© 2026 Cúl Stats</span>
+    <nav><a href="mailto:admin@culstats.ie">admin@culstats.ie</a><a href="https://culstats.ie/">Open the app</a></nav>
+  </div>
+</footer>
+
+</body>
+</html>
