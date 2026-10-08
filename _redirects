@@ -1,0 +1,2 @@
+/app    https://app.culstats.ie/  301
+/app/*  https://app.culstats.ie/:splat  301
