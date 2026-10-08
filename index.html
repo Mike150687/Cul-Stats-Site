@@ -10,14 +10,14 @@
 } catch(e){} })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cúl Stats — Gaelic football analytics for club teams</title>
-<meta name="description" content="Tag every kickout, shot and turnover from the sideline. Half-time and full-time reports, shot maps, kickout zones, opposition scouting and video clips — built for GAA clubs.">
+<title>GAA Stats App &amp; Match Analysis Software | Cul Stats</title>
+<meta name="description" content="Cul Stats is a GAA stats app and match analysis software for Gaelic football clubs. Tag kickouts, shots and turnovers from the sideline and get half-time and full-time reports, shot maps, opposition scouting and video clips. 14-day free trial.">
 <meta name="theme-color" content="#0b1f35">
 <link rel="canonical" href="https://www.culstats.ie/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.culstats.ie/">
-<meta property="og:title" content="Cúl Stats — Gaelic football analytics for club teams">
-<meta property="og:description" content="Tag every kickout, shot and turnover from the sideline. Reports, shot maps, kickout zones, opposition scouting and video clips, ready at the final whistle.">
+<meta property="og:title" content="GAA Stats App &amp; Match Analysis Software | Cul Stats">
+<meta property="og:description" content="Cul Stats is a GAA stats app and match analysis software for Gaelic football clubs. Tag kickouts, shots and turnovers from the sideline and get half-time and full-time reports, shot maps, opposition scouting and video clips. 14-day free trial.">
 <meta property="og:image" content="https://www.culstats.ie/img/icon-512.png">
 <meta name="robots" content="index, follow">
 <meta name="twitter:card" content="summary_large_image">
@@ -27,17 +27,116 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Cul Stats",
-  "applicationCategory": "SportsApplication",
-  "operatingSystem": "All (Web, iOS, Android, Desktop)",
-  "url": "https://www.culstats.ie/",
-  "description": "Gaelic football match analytics, live event logging, kickout efficiency, and video tagging for GAA clubs.",
-  "offers": {
-    "@type": "Offer",
-    "price": "249",
-    "priceCurrency": "EUR"
-  }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.culstats.ie/#org",
+      "name": "Cul Stats",
+      "alternateName": [
+        "Cúl Stats",
+        "CulStats"
+      ],
+      "url": "https://www.culstats.ie/",
+      "logo": "https://www.culstats.ie/img/icon-512.png",
+      "email": "admin@culstats.ie",
+      "areaServed": "IE"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.culstats.ie/#site",
+      "name": "Cul Stats",
+      "url": "https://www.culstats.ie/",
+      "inLanguage": "en-IE",
+      "publisher": {
+        "@id": "https://www.culstats.ie/#org"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Cul Stats",
+      "alternateName": [
+        "Cúl Stats",
+        "Cul Stats GAA stats app"
+      ],
+      "applicationCategory": "SportsApplication",
+      "applicationSubCategory": "GAA match analysis software",
+      "operatingSystem": "Web, iOS, Android, Windows, macOS",
+      "url": "https://app.culstats.ie/",
+      "description": "A GAA stats app and match analysis software for Gaelic football clubs: live tagging of kickouts, shots, turnovers, tackles and fouls; half-time and full-time reports; shot maps and expected points; kickout analysis; opposition scouting; season reports and video clips.",
+      "featureList": [
+        "Live match tagging on a phone, tablet or laptop",
+        "Half-time and full-time reports",
+        "Shot maps and expected points (xP)",
+        "Kickout analysis",
+        "Opposition scouting reports",
+        "Season reports and player pages",
+        "Video clips and highlight reels"
+      ],
+      "publisher": {
+        "@id": "https://www.culstats.ie/#org"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "99",
+        "highPrice": "999",
+        "offerCount": "4"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What if there's no signal at the pitch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It keeps recording. Everything is saved on the device as you go and backs up when the signal comes back."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it for hurling or camogie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not yet — Cúl Stats is built for Gaelic football."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who can see our data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only people your club gives access to. Analysts log in; managers and players view with your club's Team Access code. Your opposition cannot see it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do we have to upload our match video?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Paste the link to your Veo, YouTube or OneDrive video, or pick the file on your laptop. The video stays where it is."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens when the trial ends?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pick a plan and carry on — every match you recorded is kept. If you don't, the trial simply stops; nothing is charged, because nothing is billed until you choose a plan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get my data out?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Every match exports to CSV and Excel, every report to PDF, and there's a Download everything file for the whole club."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 <link rel="icon" href="img/icon-192.png">
@@ -280,9 +379,9 @@ footer a:hover{color:var(--t1)}
 <header class="hero">
   <div class="wrap">
     <div>
-      <div class="eyebrow">Gaelic football analytics</div>
+      <div class="eyebrow">GAA stats app · Gaelic football analysis</div>
       <h1 style="margin-top:14px">The whole match, <em>counted</em> from the sideline.</h1>
-      <p class="lead">Tag every kickout, shot, turnover, tackle and foul as it happens. Cúl Stats turns it into a half-time report, a full-time report, shot maps, kickout zones and video clips — ready when the whistle goes.</p>
+      <p class="lead"><b>Cul Stats is a GAA stats app and match analysis software for Gaelic football clubs.</b> Tag every kickout, shot, turnover, tackle and foul as it happens, and it turns them into a half-time report, a full-time report, shot maps, kickout zones and video clips — ready when the whistle goes.</p>
       <div class="ctas">
         <a class="btn gold" href="#trial">Start a 14-day free trial</a>
         <a class="btn ghost" href="#features">See what it does</a>
