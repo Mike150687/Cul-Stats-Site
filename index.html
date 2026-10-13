@@ -68,7 +68,8 @@
         "Kickout analysis",
         "Opposition scouting reports",
         "Season reports and player pages",
-        "Video clips and highlight reels"
+        "Video clips and highlight reels",
+        "The team and live scores posted to the club's X feed"
       ],
       "publisher": {
         "@id": "https://www.culstats.ie/#org"
@@ -122,6 +123,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Pick a plan and carry on — every match you recorded is kept. If you don't, the trial simply stops; nothing is charged, because nothing is billed until you choose a plan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can it post our team and scores to X?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Put the club's X account in Cul Stats once. The team goes out as a picture before throw-in, and every score, your subs and any black or red card has a Post button with the post already written. One tap sends it from your phone, from the account signed in there. Cul Stats never signs in to X and never posts by itself."
           }
         },
         {
@@ -238,6 +247,14 @@ section{padding:96px 0}
 .rep .find small{font-family:var(--fm);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--t3)}
 .rep .find b{font-size:16px}
 .rep .find span{font-size:14px;color:var(--t2)}
+/* The club's feed, drawn plainly: not any network's own screens */
+.xposts{display:grid;gap:10px}
+.xpost{display:grid;grid-template-columns:38px minmax(0,1fr);gap:10px;background:var(--navy-2);border-radius:12px;padding:12px 14px}
+.xpost .av{width:38px;height:38px;border-radius:50%;background:#1f4fa0;color:#f3f6f9;display:grid;place-items:center;font-family:var(--fd);font-weight:800;font-size:13px}
+.xpost .who{font-weight:800;font-size:14px}
+.xpost .who span{font-weight:500;color:var(--t3)}
+.xpost .txt{white-space:pre-wrap;font-size:14px;color:var(--t1);margin-top:2px}
+.xpost .tag{color:var(--home)}
 .clips{display:grid;gap:8px}
 .clip{display:flex;gap:12px;align-items:center;background:var(--navy-2);border-radius:10px;padding:10px 12px;font-size:14px}
 .clip .play{width:30px;height:30px;border-radius:50%;background:var(--gold);color:#1a1405;display:grid;place-items:center;font-size:12px;flex:none}
@@ -548,6 +565,38 @@ footer a:hover{color:var(--t1)}
         <div class="legend" style="margin-top:14px"><span><i class="dot" style="background:var(--score)"></i>Live: 2 watching the match now</span></div>
       </div>
     </div>
+
+    <div class="feature">
+      <div class="copy">
+        <div class="eyebrow">Your club's X feed</div>
+        <h3>The team and the scores, posted as they happen.</h3>
+        <p>Put your club's X account in Cul Stats once. Before throw-in, post the team: the fifteen in their lines and the subs, as a picture. During the match, every score, every sub you make and any black or red card has a Post button, with the post already written: who, the minute, the score as it stands, the competition and your hashtags. One tap sends it from your phone.</p>
+        <ul>
+          <li>Nothing posts by itself, and Cul Stats never signs in to X: you send every post, from the account on your phone</li>
+          <li>Only your own players are named; the other side's scores are counted, never credited</li>
+          <li>Half time and full time in one tap, and every post fits in 280 characters</li>
+        </ul>
+      </div>
+      <div class="card" aria-hidden="true">
+        <div class="ch"><b>The club's feed</b><span>Rathmoy v Kilcorran</span></div>
+        <div class="xposts">
+          <div class="xpost"><div class="av">RG</div><div><div class="who">Rathmoy GAA <span>@RathmoyGAA</span></div>
+            <div class="txt">Point, Rathmoy — Rory Tobin · H1 24'
+Rathmoy 0-1-6 (8)  Kilcorran 1-0-4 (7)
+County SFC, Round 2
+<span class="tag">#UpTheRath #culstats</span></div></div></div>
+          <div class="xpost"><div class="av">RG</div><div><div class="who">Rathmoy GAA <span>@RathmoyGAA</span></div>
+            <div class="txt">Substitution, Rathmoy: Donal Galvin on for Fionn Riordan · H2 12'
+Rathmoy 0-4-9 (17)  Kilcorran 1-1-7 (12)
+County SFC, Round 2
+<span class="tag">#UpTheRath #culstats</span></div></div></div>
+          <div class="xpost"><div class="av">RG</div><div><div class="who">Rathmoy GAA <span>@RathmoyGAA</span></div>
+            <div class="txt">Full time: Rathmoy 0-6-10 (22)  Kilcorran 1-2-8 (15)
+County SFC, Round 2
+<span class="tag">#UpTheRath #culstats</span></div></div></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -773,6 +822,7 @@ footer a:hover{color:var(--t1)}
       <details><summary>Who can see our data?</summary><p>Only people your club gives access to. Analysts log in; managers and players view with your club's season code. Your opposition cannot see it.</p></details>
       <details><summary>Do we have to upload our match video?</summary><p>No. Paste the link to your Veo, YouTube or OneDrive video, or pick the file on your laptop. The video stays where it is.</p></details>
       <details><summary>What happens when the trial ends?</summary><p>Pick a plan and carry on — every match you recorded is kept. If you don't, the trial simply stops; nothing is charged, because nothing is billed until you choose a plan.</p></details>
+      <details><summary>Can it post our team and scores to X?</summary><p>Yes. Put the club's X account in Cul Stats once. The team goes out as a picture before throw-in, and every score, your subs and any black or red card has a Post button with the post already written. One tap sends it from your phone, from the account signed in there. Cul Stats never signs in to X and never posts by itself.</p></details>
       <details><summary>Can I get my data out?</summary><p>Yes. Every match exports to CSV and Excel, every report to PDF, and there's a Download everything file for the whole club.</p></details>
     </div>
   </div>
