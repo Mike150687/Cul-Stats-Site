@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://www.culstats.ie/img/icon-512.png">
 <meta name="robots" content="index, follow">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cúl Stats — Gaelic football analytics for club teams">
+<meta name="twitter:title" content="Cul Stats — Gaelic football analytics for club teams">
 <meta name="twitter:description" content="Tag every kickout, shot and turnover from the sideline. Match reports, shot maps, and video clips for GAA clubs.">
 <meta name="twitter:image" content="https://www.culstats.ie/img/icon-512.png">
 <script type="application/ld+json">
@@ -33,7 +33,6 @@
       "@id": "https://www.culstats.ie/#org",
       "name": "Cul Stats",
       "alternateName": [
-        "Cúl Stats",
         "CulStats"
       ],
       "url": "https://www.culstats.ie/",
@@ -55,7 +54,6 @@
       "@type": "SoftwareApplication",
       "name": "Cul Stats",
       "alternateName": [
-        "Cúl Stats",
         "Cul Stats GAA stats app"
       ],
       "applicationCategory": "SportsApplication",
@@ -99,7 +97,7 @@
           "name": "Is it for hurling or camogie?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Not yet — Cúl Stats is built for Gaelic football."
+            "text": "Not yet — Cul Stats is built for Gaelic football."
           }
         },
         {
@@ -107,7 +105,7 @@
           "name": "Who can see our data?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Only people your club gives access to. Analysts log in; managers and players view with your club's Team Access code. Your opposition cannot see it."
+            "text": "Only people your club gives access to. Analysts log in; managers and players view with your club's season code. Your opposition cannot see it."
           }
         },
         {
@@ -195,23 +193,8 @@ nav.top .btn{min-height:40px;padding:0 18px;font-size:14.5px}
 /* The phone in the hero */
 .phone{justify-self:center;width:min(360px,100%);background:#07121f;border:1px solid var(--line-2);border-radius:38px;padding:12px;box-shadow:0 40px 80px -30px rgba(0,0,0,.7),0 0 0 6px rgba(255,255,255,.02)}
 .screen{background:var(--navy-1);border-radius:28px;overflow:hidden}
-.sb{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:6px;padding:14px 16px 12px;background:var(--navy-2);border-bottom:1px solid var(--line)}
-.sb .side{font-size:12px;font-weight:700;color:var(--t2);white-space:nowrap}
-.sb .side b{display:block;font-family:var(--fm);font-size:19px;color:var(--t1);letter-spacing:-.02em}
-.sb .side.r{text-align:right}
-.sb .clk{font-family:var(--fm);font-size:12px;color:var(--gold);background:var(--gold-d);padding:4px 8px;border-radius:6px;white-space:nowrap}
-.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:14px}
-.tile{background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:14px 8px;text-align:center;font-weight:800;font-size:13.5px}
-.tile i{display:block;font-style:normal;font-size:20px;margin-bottom:4px}
-.tile.on{border-color:var(--gold);background:var(--gold-d)}
-.log{padding:2px 14px 14px}
-.log .h{font-family:var(--fm);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0}
-.log .row{display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:13.5px}
-.log .row b{font-weight:800}
-.log .t{font-family:var(--fm);font-size:12px;color:var(--t3);min-width:40px}
-.log .v{margin-left:auto;font-family:var(--fm);font-size:12px;color:var(--t3)}
+.screen img{width:100%;height:auto}
 .dot{width:9px;height:9px;border-radius:50%;flex:none}
-.flash{margin:0 14px 14px;padding:10px 12px;border-radius:10px;background:rgba(63,191,127,.12);border:1px solid rgba(63,191,127,.35);font-size:13px;color:#bfeed5}
 
 /* Fact strip */
 .facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--navy-1)}
@@ -251,14 +234,10 @@ section{padding:96px 0}
 .bar .tr i{display:block;height:100%;border-radius:5px;background:var(--gold)}
 .bar .n{font-family:var(--fm);font-size:13px;text-align:right}
 .rep{display:grid;gap:10px}
-.rep .q{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:4px}
-.rep .q div{background:var(--navy-2);border-radius:8px;padding:8px;text-align:center;font-family:var(--fm);font-size:13px}
-.rep .q small{display:block;color:var(--t3);font-family:var(--fui);font-size:11px}
-.pdfs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.pdf{aspect-ratio:1/1.35;background:#f6f7f9;border-radius:6px;padding:10px;display:grid;align-content:start;gap:6px}
-.pdf i{display:block;height:6px;border-radius:3px;background:#d7dce3}
-.pdf i.k{background:#14181f;height:9px;width:70%}
-.pdf .pp{height:52px;border-radius:4px;background:var(--pitch)}
+.rep .find{display:grid;gap:3px;background:var(--navy-2);border-radius:10px;padding:12px 14px}
+.rep .find small{font-family:var(--fm);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--t3)}
+.rep .find b{font-size:16px}
+.rep .find span{font-size:14px;color:var(--t2)}
 .clips{display:grid;gap:8px}
 .clip{display:flex;gap:12px;align-items:center;background:var(--navy-2);border-radius:10px;padding:10px 12px;font-size:14px}
 .clip .play{width:30px;height:30px;border-radius:50%;background:var(--gold);color:#1a1405;display:grid;place-items:center;font-size:12px;flex:none}
@@ -368,7 +347,7 @@ footer a:hover{color:var(--t1)}
 
 <nav class="top">
   <div class="wrap">
-    <a class="logo" href="#"><img src="img/wordmark.png" alt="Cúl Stats — Gaelic football analytics" width="140" height="44"></a>
+    <a class="logo" href="#"><img src="img/wordmark.png" alt="Cul Stats — Gaelic football analytics" width="135" height="44"></a>
     <div class="links">
       <a href="#features">Features</a><a href="#inside">Screenshots</a><a href="#video">Video</a><a href="#analysis">Match analysis</a><a href="#pricing">Pricing</a><a href="#get">Get the app</a><a href="#faq">FAQ</a>
     </div>
@@ -381,39 +360,22 @@ footer a:hover{color:var(--t1)}
     <div>
       <div class="eyebrow">GAA stats app · Gaelic football analysis</div>
       <h1 style="margin-top:14px">The whole match, <em>counted</em> from the sideline.</h1>
-      <p class="lead"><b>Cul Stats is a GAA stats app and match analysis software for Gaelic football clubs.</b> Tag every kickout, shot, turnover, tackle and foul as it happens, and it turns them into a half-time report, a full-time report, shot maps, kickout zones and video clips — ready when the whistle goes.</p>
+      <p class="lead"><b>Cul Stats is a GAA stats app and match analysis software for Gaelic football clubs.</b> Tag every kickout, shot, turnover, tackle and foul as it happens — three or four taps each — and at the final whistle it tells you what the match was won or lost on, with the three things that decided it, the clips of each, and the report for the management WhatsApp.</p>
       <div class="ctas">
         <a class="btn gold" href="#trial">Start a 14-day free trial</a>
         <a class="btn ghost" href="#features">See what it does</a>
       </div>
       <p class="small">Phone, tablet or laptop · Keeps recording with no signal · Unlimited managers and players can view</p>
     </div>
-    <div class="phone" aria-hidden="true">
-      <div class="screen">
-        <div class="sb">
-          <span class="side">Home<b>1-09</b></span>
-          <span class="clk">H1 27:14</span>
-          <span class="side r">Away<b>0-10</b></span>
-        </div>
-        <div class="pad">
-          <div class="tile on"><i>◎</i>Shot</div><div class="tile"><i>⇄</i>Turnover</div><div class="tile"><i>✋</i>Tackle</div>
-          <div class="tile"><i>⚑</i>Foul</div><div class="tile"><i>↗</i>Kickout</div><div class="tile"><i>⇅</i>Sub</div>
-        </div>
-        <div class="flash">Logged: Point · #11 — from play, under pressure. Worth 0.41 expected points.</div>
-        <div class="log">
-          <div class="h">Last three</div>
-          <div class="row"><span class="t">27:14</span><span class="dot" style="background:var(--score)"></span><b>Point</b> #11<span class="v">From play</span></div>
-          <div class="row"><span class="t">26:40</span><span class="dot" style="background:var(--home)"></span><b>Kickout won</b> #8<span class="v">Restart</span></div>
-          <div class="row"><span class="t">25:02</span><span class="dot" style="background:var(--wide)"></span><b>Wide</b> #14<span class="v">Two-pointer</span></div>
-        </div>
-      </div>
+    <div class="phone">
+      <div class="screen"><img src="img/app/phone-record.webp" alt="Recording on a phone: the score and clock at the top, the last three actions, and the six action tiles within reach of the thumb" width="780" height="1688" fetchpriority="high"></div>
     </div>
   </div>
 </header>
 
 <div class="facts">
   <div class="wrap">
-    <div><b>Six tiles</b>Shot, turnover, tackle, foul, kickout, sub — all by tapping</div>
+    <div><b>Four taps a shot</b>The number, the spot, what happened — the team comes with the number</div>
     <div><b>Reels on WhatsApp</b>Send clips as one link — players watch on their phone</div>
     <div><b>No signal? Fine</b>It keeps recording and catches up later</div>
     <div><b>Whole management</b>A second device live, and view-only access for everyone else</div>
@@ -432,10 +394,11 @@ footer a:hover{color:var(--t1)}
       <div class="copy">
         <div class="eyebrow">Live tagging</div>
         <h3>Tap, tap, back to watching the game.</h3>
-        <p>Pick the action, the player and where it happened on the pitch. The time is taken at your first tap, not when you finish, so the clock is right even when the play is quick.</p>
+        <p>Tap the action, then the player's number — both teams' numbers are on one screen, so the number names the team too. One tap on the pitch, and the outcome saves it. The time is taken at your first tap, so the clock is right even when the play is quick.</p>
         <ul>
+          <li>Tap beyond the dashed 40m arc and Point becomes 2-Pointer; a point tapped out there is flagged so you can check it</li>
           <li>After a score or a wide, Kickout already knows who is kicking out</li>
-          <li>Every action is said back to you for two seconds, so a wrong name is one tap from fixed</li>
+          <li>On a laptop, the keyboard: S shot, K kickout, W or L for ball won or lost, a jersey number to pick the player</li>
           <li>Undo names what it is about to undo</li>
         </ul>
       </div>
@@ -482,25 +445,19 @@ footer a:hover{color:var(--t1)}
     <div class="feature flip">
       <div class="copy">
         <div class="eyebrow">Reports</div>
-        <h3>A half-time report for the dressing room. A full report for Tuesday.</h3>
-        <p>The story of the match in pictures, the detail behind it, and how it went quarter by quarter. Every report saves as a clean PDF to send to the management WhatsApp.</p>
+        <h3>What it was won or lost on, the moment the whistle goes.</h3>
+        <p>Every finished match opens on one sentence — what decided it, and whether the chances say it will happen again — then the three things that mattered most, each with its figure, what to do about it, and the clips of just those moments. The findings are picked, not fixed: a match lost on kickouts leads with the kickouts.</p>
         <ul>
-          <li>Half-time summary you can read in the dressing room</li>
-          <li>Post-match report: the story, the detail, by quarter, or all of it</li>
-          <li>A one-page Coach Page in plain English, and a result card for the club's socials</li>
+          <li>Measured against the targets you agreed with the manager, not a general idea of good</li>
+          <li>Everything under one Share button: a message to the manager, a written review, a result card for the club's socials, the full PDF report</li>
+          <li>A half-time report for the dressing room, with the half in pictures</li>
         </ul>
       </div>
       <div class="card" aria-hidden="true">
-        <div class="ch"><b>Post-match report</b><span>PDF · 6 pages</span></div>
+        <div class="ch"><b>The short version</b><span>Full time · W</span></div>
         <div class="rep">
-          <div class="pdfs">
-            <div class="pdf"><i class="k"></i><i></i><i style="width:80%"></i><div class="pp"></div><i></i><i style="width:60%"></i></div>
-            <div class="pdf"><i class="k" style="width:55%"></i><div class="pp"></div><i></i><i style="width:70%"></i><i></i></div>
-            <div class="pdf"><i class="k" style="width:62%"></i><i></i><i></i><i style="width:85%"></i><div class="pp" style="height:40px"></div></div>
-          </div>
-          <div class="q">
-            <div><small>Q1</small>0-04</div><div><small>Q2</small>1-05</div><div><small>Q3</small>0-03</div><div><small>Q4</small>0-06</div>
-          </div>
+          <p style="font-family:var(--fd);font-weight:800;font-size:19px;line-height:1.3;color:var(--t1)">Won on two-pointers and finishing; the restarts went against you. The chances say it won't repeat as it is.</p>
+          <div class="find"><small>Finding 1 · Two-pointers</small><b>Your two-pointers paid</b><span>3 of 4 from play, 1.50 points a shot · → Keep taking them from where they pay</span></div>
         </div>
       </div>
     </div>
@@ -531,11 +488,11 @@ footer a:hover{color:var(--t1)}
       <div class="copy">
         <div class="eyebrow">Opposition scouting</div>
         <h3>Know the next team better than they know themselves.</h3>
-        <p>Every match you have on file against your next opponent, pooled into one report: where they shoot from, where their kickouts go, who scores, and when.</p>
+        <p>Every match you have on file with your next opponent in it, pooled into one page for the manager: the way in, the thing to respect, then phase by phase — their kickout, ours, their shooting — what they do, what you do, and the evidence. Then who to pick up, with one instruction each.</p>
         <ul>
-          <li>Tap any mark on their shot or kickout map to see the match, the time and the result</li>
-          <li>…and jump straight to the clip if there is video</li>
-          <li>Pictures first for the players, the figures underneath for management</li>
+          <li>Name the opposition on Home and their report is waiting on the next-match board</li>
+          <li>Tap any mark on their shot or kickout map for the match, the minute and the clip</li>
+          <li>Something you do as much as they do is never offered as their weakness</li>
         </ul>
       </div>
       <div class="card" aria-hidden="true">
@@ -552,17 +509,38 @@ footer a:hover{color:var(--t1)}
 
     <div class="feature">
       <div class="copy">
-        <div class="eyebrow">The whole management team</div>
-        <h3>One analyst tags. Everyone else watches it build.</h3>
-        <p>A second phone or tablet can follow the match live from the stand. Managers, coaches and players get their own view-only access with a club code — as many as you like, on every plan.</p>
+        <div class="eyebrow">Players</div>
+        <h3>A page a player would actually open.</h3>
+        <p>Tap any name for his page: the rating out of ten against his own last five matches, the one line worth reading — a season best, or the figure furthest above his usual — and his moments from the match, each a tap from the video. The panel for his position, and the manager's note.</p>
         <ul>
-          <li>Live sharing to a second device during the match</li>
-          <li>View-only Team Access for managers and players</li>
-          <li>A season summary that adds up every match</li>
+          <li>Squad ranks the whole panel by rating, form and minutes</li>
+          <li>Season adds up every match he played; Clips has every moment of his</li>
+          <li>Players with a season code see their own page on their phone</li>
         </ul>
       </div>
       <div class="card" aria-hidden="true">
-        <div class="ch"><b>Team Access</b><span>View only</span></div>
+        <div class="ch"><b>#14 · Fionn Riordan</b><span>This match</span></div>
+        <div class="rep">
+          <div style="display:flex;gap:14px;align-items:center"><span style="font-family:var(--fm);font-weight:700;font-size:36px;background:var(--navy-2);border-radius:10px;padding:4px 14px">5.9</span><span style="font-family:var(--fm);font-size:14px;color:var(--t2)">56 min<br>vs last 4: 6.5 ▼</span></div>
+          <p style="font-weight:800;font-size:17px">Your best points scored of the season: 3.</p>
+          <div class="clips"><div class="clip"><span class="play">▶</span><span><b>Two-pointer</b></span><span class="tt">37:12</span></div><div class="clip"><span class="play">▶</span><span><b>Point</b></span><span class="tt">36:36</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature flip">
+      <div class="copy">
+        <div class="eyebrow">The whole management team</div>
+        <h3>One analyst tags. Everyone else watches it build.</h3>
+        <p>A second phone or tablet can follow the match live from the stand. Managers, coaches and players get view-only access with a season code — as many as you like, on every plan. A club whose match you analysed gets a code for that one match.</p>
+        <ul>
+          <li>Live sharing to a second device during the match</li>
+          <li>Season codes for managers and players, view only</li>
+          <li>A season page that adds up every match: the record, the season's verdict and what keeps coming up</li>
+        </ul>
+      </div>
+      <div class="card" aria-hidden="true">
+        <div class="ch"><b>Season codes</b><span>View only</span></div>
         <div class="share">
           <div><small>Managers</small><b>K7Q-2M</b><small>4 people</small></div>
           <div><small>Players</small><b>P3X-9F</b><small>31 people</small></div>
@@ -578,25 +556,25 @@ footer a:hover{color:var(--t1)}
     <div class="sec-head">
       <div class="eyebrow">Inside the app</div>
       <h2>What you get after every match.</h2>
-      <p class="lead">Straight from the app, the moment the final whistle goes. Tap any picture to see it full size.</p>
+      <p class="lead">Straight from the app, the moment the final whistle goes. Five places — Home, Matches, Squad, Opposition and Season — the same on a phone and a laptop. Tap any picture to see it full size.</p>
     </div>
     <div class="shots">
+      <figure class="shot"><a href="img/app/match-summary.webp" target="_blank" rel="noopener"><img src="img/app/match-summary.webp" alt="A finished match opens on its verdict, then the three findings, each with its figure and what to do" width="2560" height="1600" loading="lazy"></a>
+        <figcaption><b>The verdict and three findings</b><span>What the match was won or lost on, then the three things that mattered — each with what to do and a button that plays just those moments.</span></figcaption></figure>
       <figure class="shot"><a href="img/app/post-match-report.webp" target="_blank" rel="noopener"><img src="img/app/post-match-report.webp" alt="The post-match report: how the lead moved, where the scores came from, and the two teams side by side" width="2560" height="1600" loading="lazy"></a>
-        <figcaption><b>Post-match report</b><span>The story of the match in pictures — how the lead moved, where the scores came from, you against them — and a clean PDF for the management WhatsApp.</span></figcaption></figure>
-      <figure class="shot"><a href="img/app/match-summary.webp" target="_blank" rel="noopener"><img src="img/app/match-summary.webp" alt="The match in plain questions: did we deserve it, did we take our chances, were they good chances" width="2560" height="1600" loading="lazy"></a>
-        <figcaption><b>The match, in plain questions</b><span>Did we deserve it? Did we take our chances? Were they good chances? What did our kickouts give us? Answered at full time.</span></figcaption></figure>
+        <figcaption><b>Post-match report</b><span>The story in pictures — how the lead moved, where the scores came from, you against your usual — and a clean PDF for the management WhatsApp.</span></figcaption></figure>
+      <figure class="shot"><a href="img/app/share-menu.webp" target="_blank" rel="noopener"><img src="img/app/share-menu.webp" alt="The Share menu on a finished match: message to the manager, written review, result card, PDF, half-time report, reel link, CSV, Excel and share code" width="2560" height="1600" loading="lazy"></a>
+        <figcaption><b>One Share button</b><span>The message to the manager, the written review, the result card, the PDF, the reel — each saying what it makes.</span></figcaption></figure>
       <figure class="shot"><a href="img/app/shot-map.webp" target="_blank" rel="noopener"><img src="img/app/shot-map.webp" alt="The pitch map: every shot, kickout, turnover and foul where it happened" width="2560" height="1600" loading="lazy"></a>
         <figcaption><b>Pitch map</b><span>Every shot, kickout, turnover and foul where it happened, for one team or both, one half or one player. Tap any mark for who, when and the clip.</span></figcaption></figure>
       <figure class="shot"><a href="img/app/ratings.webp" target="_blank" rel="noopener"><img src="img/app/ratings.webp" alt="Player ratings shown on the pitch, by position" width="2560" height="1600" loading="lazy"></a>
         <figcaption><b>Player ratings</b><span>Every player rated from what they actually did, laid out where they played, with the subs and when they came on.</span></figcaption></figure>
-      <figure class="shot"><a href="img/app/coach-page.webp" target="_blank" rel="noopener"><img src="img/app/coach-page.webp" alt="The Coach Page: the score and the chances created, minute by minute" width="2560" height="1600" loading="lazy"></a>
-        <figcaption><b>Coach Page</b><span>One page in plain English for the manager. Every picture saves as an image to drop into the group chat.</span></figcaption></figure>
-      <figure class="shot"><a href="img/app/detail-kickouts.webp" target="_blank" rel="noopener"><img src="img/app/detail-kickouts.webp" alt="The detail: kickouts by quarter, short and long, won and lost" width="2560" height="1600" loading="lazy"></a>
-        <figcaption><b>The detail</b><span>Kickouts by quarter, short and long, won and lost — and shooting, turnovers, expected points and more, section by section.</span></figcaption></figure>
-      <figure class="shot"><a href="img/app/season-summary.webp" target="_blank" rel="noopener"><img src="img/app/season-summary.webp" alt="The season summary: chances created and conceded, finishing, and what keeps coming up" width="2560" height="1600" loading="lazy"></a>
-        <figcaption><b>Season summary</b><span>Every match added up — and the one thing that keeps coming up, with the matches it came up in.</span></figcaption></figure>
-      <figure class="shot"><a href="img/app/opposition.webp" target="_blank" rel="noopener"><img src="img/app/opposition.webp" alt="Opposition scouting: their last results, how they build their scores and when they score" width="2560" height="1600" loading="lazy"></a>
-        <figcaption><b>Opposition scouting</b><span>Their recent results, how they build their scores and when they score, pooled from every match you have on them.</span></figcaption></figure>
+      <figure class="shot"><a href="img/app/player-page.webp" target="_blank" rel="noopener"><img src="img/app/player-page.webp" alt="A player's page: the rating against his last matches, his best of the season, his moments as clips" width="2560" height="1600" loading="lazy"></a>
+        <figcaption><b>A player's page</b><span>His rating against his own usual, the line worth reading, and his moments — each a tap from the video.</span></figcaption></figure>
+      <figure class="shot"><a href="img/app/season-summary.webp" target="_blank" rel="noopener"><img src="img/app/season-summary.webp" alt="The season overview: the record, the season verdict and its findings" width="2560" height="1600" loading="lazy"></a>
+        <figcaption><b>The season</b><span>Every match added up into a verdict and three findings — and the detail folded into chapters that each say their answer first.</span></figcaption></figure>
+      <figure class="shot"><a href="img/app/opposition.webp" target="_blank" rel="noopener"><img src="img/app/opposition.webp" alt="Opposition scouting: the way in against them, the thing to respect, and the evidence" width="2560" height="1600" loading="lazy"></a>
+        <figcaption><b>Opposition scouting</b><span>One page for the manager: the way in, the thing to respect, what they do against what you do, and who to pick up.</span></figcaption></figure>
     </div>
     <p class="shots-note">The screenshots use made-up clubs and players.</p>
   </div>
@@ -610,7 +588,7 @@ footer a:hover{color:var(--t1)}
         <h3 style="font-size:clamp(30px,4vw,44px)">Every tag is a clip.</h3>
         <p>Add the match video from Veo, YouTube or OneDrive and every action you tagged opens at that moment — seven seconds early, so you see the build-up.</p>
         <ul>
-          <li><b style="color:var(--t1)">Highlight reels:</b> every kickout, shot, turnover, free or throw-in for a team or one player, back to back — across as many matches as you like</li>
+          <li><b style="color:var(--t1)">Highlight reels:</b> every kickout, shot, turnover, free or throw-in for a team or one player, back to back — across as many matches as you like, from Season → Reel</li>
           <li><b style="color:var(--t1)">Video review:</b> the app listens for the referee's whistle to line up each half, and flags the tags you probably tapped late so you can fix each one</li>
           <li>Your video stays where it is. Nothing is uploaded to us.</li>
         </ul>
@@ -630,7 +608,7 @@ footer a:hover{color:var(--t1)}
       <div class="copy">
         <div class="eyebrow">Reels on WhatsApp</div>
         <h3 style="font-size:clamp(30px,4vw,44px)">Make a reel. Send it as one link.</h3>
-        <p>Pick the clips — every kickout from your last three matches, or one player's shots — and Cúl Stats turns them into one short link. Send it on WhatsApp and players open it on their phone: the clips play back to back, straight from your YouTube videos. No login, no app, nothing to download.</p>
+        <p>Pick the clips — every kickout from your last three matches, or one player's shots — and Cul Stats turns them into one short link. Send it on WhatsApp and players open it on their phone: the clips play back to back, straight from your YouTube videos. No login, no app, nothing to download.</p>
         <ul>
           <li>Kickouts, shots, turnovers, frees or throw-ins, for a team or one player</li>
           <li>Across as many matches as you like, each clip adjustable a second either way</li>
@@ -640,11 +618,10 @@ footer a:hover{color:var(--t1)}
       </div>
       <div class="card" aria-hidden="true">
         <div class="wa">
-          <div class="msg"><div class="prev"><small>Cúl Stats · reel</small><b>Ballyderg kickouts</b><span>77 clips · 4 matches</span></div>
+          <div class="msg"><div class="prev"><small>Cul Stats · reel</small><b>Ballyderg kickouts</b><span>77 clips · 4 matches</span></div>
             Their kickouts before Sunday 👇 <span class="lnk">app.culstats.ie/#r=K7Q2MXPA</span><span class="tm">21:14 ✓✓</span></div>
           <div class="reply">Watched it twice. Their short ones go left every time<span class="tm">21:32</span></div>
         </div>
-        <img src="img/app/reel-share.webp" alt="" width="2074" height="307" loading="lazy" style="width:100%;height:auto;border-radius:10px;border:1px solid var(--line-2)">
       </div>
     </div>
   </div>
@@ -658,8 +635,8 @@ footer a:hover{color:var(--t1)}
     </div>
     <div class="steps">
       <div class="step"><div class="n">1</div><h3>Set up the match</h3><p>Pick your panel and the opposition's. Your squads are saved for next week.</p></div>
-      <div class="step"><div class="n">2</div><h3>Tag it</h3><p>From the sideline as it happens, or afterwards from the video. Six tiles, all tapping, no typing.</p></div>
-      <div class="step"><div class="n">3</div><h3>Read it</h3><p>Reports, maps and clips build as you go. Share the PDF, or let management open it themselves.</p></div>
+      <div class="step"><div class="n">2</div><h3>Tag it</h3><p>From the sideline as it happens, or afterwards from the video. Three or four taps an action, no typing.</p></div>
+      <div class="step"><div class="n">3</div><h3>Read it</h3><p>At the whistle: the verdict, the three findings and their clips. Send it from Share, or let management open it themselves.</p></div>
     </div>
   </div>
 </section>
@@ -670,10 +647,10 @@ footer a:hover{color:var(--t1)}
       <div class="copy">
         <div class="eyebrow">Match analysis · €99 a match</div>
         <h3 style="font-size:clamp(30px,4vw,44px)">No stats person? Send us the video.</h3>
-        <p>We tag the whole match for you — both teams, every kickout, shot, turnover, tackle and foul — and give you view-only access to it in Cúl Stats within 48 hours of getting the video. One match, one price, no subscription.</p>
+        <p>We tag the whole match for you — both teams, every kickout, shot, turnover, tackle and foul — and give you view-only access to it in Cul Stats within 48 hours of getting the video. One match, one price, no subscription.</p>
         <ul>
           <li>Every action tagged, for both teams</li>
-          <li>Your match in Cúl Stats, view only — for your management and players</li>
+          <li>Your match in Cul Stats, view only — for your management and players</li>
           <li>The full post-match report, shot maps and kickout zones, ready to save as PDFs</li>
           <li>A clip link for every action, at the moment it happened</li>
           <li>Ready within 48 hours of the video</li>
@@ -683,7 +660,7 @@ footer a:hover{color:var(--t1)}
       <div class="steps" style="grid-template-columns:1fr;gap:12px">
         <div class="step" style="padding:20px 22px;display:flex;gap:16px;align-items:flex-start"><div class="n" style="margin:0;flex:none">1</div><div><h3 style="font-size:19px">Send us the match</h3><p style="margin-top:4px">Who you played, when, and a link to the video. €99, and that's it.</p></div></div>
         <div class="step" style="padding:20px 22px;display:flex;gap:16px;align-items:flex-start"><div class="n" style="margin:0;flex:none">2</div><div><h3 style="font-size:19px">We tag the whole match</h3><p style="margin-top:4px">Both teams, every action, each one linked to its moment in the video.</p></div></div>
-        <div class="step" style="padding:20px 22px;display:flex;gap:16px;align-items:flex-start"><div class="n" style="margin:0;flex:none">3</div><div><h3 style="font-size:19px">You open it in Cúl Stats</h3><p style="margin-top:4px">Within 48 hours of the video we email you a code. Enter it in the app and the whole match is there, view only.</p></div></div>
+        <div class="step" style="padding:20px 22px;display:flex;gap:16px;align-items:flex-start"><div class="n" style="margin:0;flex:none">3</div><div><h3 style="font-size:19px">You open it in Cul Stats</h3><p style="margin-top:4px">Within 48 hours of the video we email you a code. Enter it in the app and the whole match is there, view only.</p></div></div>
       </div>
     </div>
   </div>
@@ -769,7 +746,7 @@ footer a:hover{color:var(--t1)}
     <div class="sec-head">
       <div class="eyebrow">Get the app</div>
       <h2>No app store. Open it and add it to your home screen.</h2>
-      <p class="lead">Cúl Stats runs in your browser and installs like any app — with its own icon, full screen, and working with no signal. Updates arrive by themselves.</p>
+      <p class="lead">Cul Stats runs in your browser and installs like any app — with its own icon, full screen, and working with no signal. Updates arrive by themselves.</p>
     </div>
     <div class="getapp">
       <img src="img/icon-192.png" alt="" width="72" height="72">
@@ -778,7 +755,7 @@ footer a:hover{color:var(--t1)}
     </div>
     <div class="devices">
       <div class="device"><h3>iPhone or iPad</h3><ol><li>Open <b>app.culstats.ie</b> in <b>Safari</b></li><li>Tap <b>Share</b> (the square with the arrow)</li><li>Tap <b>Add to Home Screen</b></li></ol></div>
-      <div class="device"><h3>Android</h3><ol><li>Open <b>app.culstats.ie</b> in <b>Chrome</b></li><li>Tap <b>⋮</b> in the corner</li><li>Tap <b>Install app</b> or <b>Add to Home screen</b></li></ol></div>
+      <div class="device"><h3>Android</h3><ol><li>Open <b>app.culstats.ie</b> in <b>Chrome</b></li><li>Tap <b>⋮</b> in the corner</li><li>Tap <b>Install app</b> or <b>Add to Home screen</b></li></ol><p style="margin-top:10px;color:var(--t3);font-size:15px">On a Samsung phone, use <b>Chrome</b>, not Samsung Internet: Samsung's browser installs it in a way Google Play Protect warns about.</p></div>
       <div class="device"><h3>Laptop</h3><ol><li>Open <b>app.culstats.ie</b> in <b>Chrome</b> or <b>Edge</b></li><li>Click the <b>install</b> icon at the end of the address bar</li><li>Best for video review and highlight reels</li></ol></div>
     </div>
   </div>
@@ -792,8 +769,8 @@ footer a:hover{color:var(--t1)}
     </div>
     <div class="faq">
       <details><summary>What if there's no signal at the pitch?</summary><p>It keeps recording. Everything is saved on the device as you go and backs up when the signal comes back.</p></details>
-      <details><summary>Is it for hurling or camogie?</summary><p>Not yet — Cúl Stats is built for Gaelic football.</p></details>
-      <details><summary>Who can see our data?</summary><p>Only people your club gives access to. Analysts log in; managers and players view with your club's Team Access code. Your opposition cannot see it.</p></details>
+      <details><summary>Is it for hurling or camogie?</summary><p>Not yet — Cul Stats is built for Gaelic football.</p></details>
+      <details><summary>Who can see our data?</summary><p>Only people your club gives access to. Analysts log in; managers and players view with your club's season code. Your opposition cannot see it.</p></details>
       <details><summary>Do we have to upload our match video?</summary><p>No. Paste the link to your Veo, YouTube or OneDrive video, or pick the file on your laptop. The video stays where it is.</p></details>
       <details><summary>What happens when the trial ends?</summary><p>Pick a plan and carry on — every match you recorded is kept. If you don't, the trial simply stops; nothing is charged, because nothing is billed until you choose a plan.</p></details>
       <details><summary>Can I get my data out?</summary><p>Yes. Every match exports to CSV and Excel, every report to PDF, and there's a Download everything file for the whole club.</p></details>
@@ -814,8 +791,8 @@ footer a:hover{color:var(--t1)}
 
 <footer>
   <div class="wrap">
-    <img src="img/wordmark.png" alt="Cúl Stats" width="108" height="34">
-    <span>© 2026 Cúl Stats</span>
+    <img src="img/wordmark.png" alt="Cul Stats" width="105" height="34">
+    <span>© 2026 Cul Stats</span>
     <nav><a href="mailto:admin@culstats.ie">admin@culstats.ie</a><a href="terms/">Terms and privacy</a><a href="https://app.culstats.ie/">Open the app</a></nav>
   </div>
 </footer>
